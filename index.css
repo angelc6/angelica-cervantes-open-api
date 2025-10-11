@@ -1,0 +1,113 @@
+/*===========================================================*/
+/* MOBILE*/
+/*===========================================================*/
+body{
+    background-color: #759AAB; 
+    color: #0C1821; 
+    font-family:'Times New Roman', Times, serif;
+}
+
+h1{
+    text-align: center;
+    color: #1B2A41;
+    font-size: 2.5em;
+    font-weight: 900;
+    text-transform:capitalize; 
+}
+
+section{
+    padding: 2.5rem;
+    margin: 1.25rem auto;
+    max-width: 90%;
+    background-color: #CCC9DC;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.3125rem black;
+}
+
+h2{
+    font-size: 1.3em;
+    font-weight: 700; 
+}
+
+/* About Section*/
+#About{
+    text-align: center; 
+}
+
+/* Experience Section */
+#Info{
+    background-color: #CCC9DC;
+    text-align: center;
+}
+
+.info{
+    border-bottom: 0.0625rem solid #ccc ;
+}
+
+.info-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+/* Skills Section */
+#Skills ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+#Skills li{
+    font-size: medium;
+    background-color: pink;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+}
+
+/*===========================================================*/
+/* TABLET*/
+/*===========================================================*/
+/*@media (min-width: 768px){
+    header{
+        font-size: 1.3em;
+    }
+    h1{
+        font-size: 2.5em;
+        margin-top: 3rem;
+    }
+
+    h2{
+        font-size: 1.7em;
+        font-weight: 700; 
+
+    }
+
+    header nav ul {
+        gap: 1.5rem;
+    }
+
+    #Connect ul {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+        justify-content: center;
+    }
+}*/
+
+/*===========================================================*/
+/* DESKTOP*/
+/*===========================================================*/
+/*@media (min-width: 1024px){
+    h1{
+        font-size: 3.4em;
+        margin-top: 3.5rem;
+    }
+
+    #Connect ul {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.15rem;
+        justify-content: space-evenly;
+    }
+}*/
