@@ -2,45 +2,81 @@
 const body = document.body;
 
 //------Footer------
-
-//create footer element
 let footer = document.createElement("footer");
-//append footer to body
 body.appendChild(footer);
 
-// create a new date object
 const today = new Date();
-//get current year
 const thisYear = today.getFullYear();
-//get the current footer element
 footer = document.querySelector("footer");
-//create new <p> element
+
 const copyright = document.createElement("p");
-//set the inner html with copyright symbol, name, and year
 copyright.innerHTML = `\u00A9 Periwinkle ${thisYear}`;
-//append <p> to the footer
 footer.appendChild(copyright);
-//center footer
 footer.style.textAlign = "center";
 
-//-------- weather section -----------
-const temperature_unit = "fahrenheit";
-const apiURL =
-  "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m&temperature_unit=fahrenheit";
-// site = https://api.open-meteo.com
-//endpoint = v1/forecast
-// ? = everything after is a parameter
+//-------- main logic --------------
+const output = document.getElementById("output");
+const tempBtn = document.getElementById("tempBtn");
+const windBtn = document.getElementById("windBtn");
+const cityInput = document.getElementById("cityInput");
 
-fetch(apiURL)
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error("Failed to fetch weather data. Please try again later.");
-    }
-    return response.json(); //parse JSON
-  })
-  .then((data) => {
-    console.log(data);
-  })
-  .catch((error) => {
-    console.error("Error fetching forecast", error);
-  });
+const baseURL = "https://api.open-meteo.com/v1/forecast";
+const geoURL = "https://geocoding-api.open-meteo.com/v1/search";
+
+//------------ Location section--------
+async function getCoordinates(city) {
+  const response = await fetch(
+    `${geoURL}?name=${encodeURIComponent(city)}&count=1`
+  );
+  if (!response.ok) throw new Error("Error fetching city coordinates.");
+  const data = await response.json();
+  if (!data.results || data.results.length === 0)
+    throw new Error("City not found.");
+  const { latitude, longitude, name, country } = data.results[0];
+  return { latitude, longitude, name, country };
+}
+
+//-------- weather section -----------
+//fetch temperature
+async function getTemperature() {
+  const city = cityInput.value.trim() || "Chicago";
+  try {
+    const { latitude, longitude, name, country } = await getCoordinates(city);
+    const tempURL = `${baseURL}?latitude=${latitude}&longitude=${longitude}&current=temperature_2m&temperature_unit=fahrenheit`;
+    const response = await fetch(tempURL);
+    if (!response.ok) throw new Error("Failed to fetch temperature data.");
+    const data = await response.json();
+    const temp = data.current.temperature_2m;
+    output.innerHTML = `
+      <h3>Current Temperature</h3>
+      <p>${temp} °F</p>
+      <p><strong>Location:</strong> ${name}, ${country}</p>
+    `;
+  } catch (error) {
+    output.innerHTML = `<p>${error.message}</p>`;
+  }
+}
+
+//fetch wind speed
+async function getWind() {
+  const city = cityInput.value.trim() || "Chicago";
+  try {
+    const { latitude, longitude, name, country } = await getCoordinates(city);
+    const windURL = `${baseURL}?latitude=${latitude}&longitude=${longitude}&current=wind_speed_10m`;
+    const response = await fetch(windURL);
+    if (!response.ok) throw new Error("Failed to fetch wind data.");
+    const data = await response.json();
+    const wind = data.current.wind_speed_10m;
+    output.innerHTML = `
+      <h3>Current Wind Speed</h3>
+      <p>${wind} mph</p>
+      <p><strong>Location:</strong> ${name}, ${country}</p>
+    `;
+  } catch (error) {
+    output.innerHTML = `<p>${error.message}</p>`;
+  }
+}
+
+//---------------- Event listeners ------------
+tempBtn.addEventListener("click", getTemperature);
+windBtn.addEventListener("click", getWind);

@@ -1,113 +1,196 @@
 /*===========================================================*/
-/* MOBILE*/
+/* BASE STYLES*/
 /*===========================================================*/
-body{
-    background-color: #759AAB; 
-    color: #0C1821; 
-    font-family:'Times New Roman', Times, serif;
+body {
+    background-color: #759AAB;
+    color: #0C1821;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
 }
 
-h1{
+h1 {
     text-align: center;
     color: #1B2A41;
-    font-size: 2.5em;
+    font-size: 2.2rem;
     font-weight: 900;
-    text-transform:capitalize; 
+    text-transform: capitalize;
+    margin-top: 1.5rem;
 }
 
-section{
-    padding: 2.5rem;
-    margin: 1.25rem auto;
-    max-width: 90%;
-    background-color: #CCC9DC;
-    border-radius: 0.5rem;
-    box-shadow: 0 0.125rem 0.3125rem black;
-}
-
-h2{
-    font-size: 1.3em;
-    font-weight: 700; 
-}
-
-/* About Section*/
-#About{
-    text-align: center; 
-}
-
-/* Experience Section */
-#Info{
-    background-color: #CCC9DC;
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5rem;
     text-align: center;
 }
 
-.info{
-    border-bottom: 0.0625rem solid #ccc ;
+#cityInput {
+    width: 85%;
+    max-width: 400px;
+    padding: 0.8rem 1rem;
+    border: 2px solid #1B2A41;
+    border-radius: 25px;
+    font-size: 1rem;
+    text-align: center;
+    outline: none;
+    background-color: #f9f9f9;
+    color: #0c1821;
 }
 
-.info-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
+#cityInput:focus {
+    border-color: #759AAB;
+    box-shadow: 0 0 6px #324A6E;
 }
 
-/* Skills Section */
-#Skills ul {
-    list-style: none;
-    padding: 0;
+.button-group {
     display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-top: 1.2rem;
     flex-wrap: wrap;
-    gap: 10px;
     justify-content: center;
 }
 
-#Skills li{
-    font-size: medium;
-    background-color: pink;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
+.button-group button {
+    background-color: #1B2A41;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 30px;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button-group button:hover {
+    background-color: #324A6E;
+    transform: scale(1.05);
+}
+
+section {
+    padding: 2rem;
+    margin: 1.5rem auto;
+    max-width: 90%;
+    background-color: #CCC9DC;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.125rem 0.3125rem black;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.3em;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+/* Output */
+#output {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-top: 1rem;
+    color: #1b2a41
+}
+
+#output h3{
+    color: #1b2a41;
+    margin-bottom: 0.5rem;
+}
+
+/* footer */
+footer {
+    margin-top: 2rem;
+    color: #1B2A41;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 1rem;
 }
 
 /*===========================================================*/
-/* TABLET*/
+/* SMALL SCREENS (Phones)*/
 /*===========================================================*/
-/*@media (min-width: 768px){
-    header{
-        font-size: 1.3em;
-    }
-    h1{
-        font-size: 2.5em;
-        margin-top: 3rem;
+@media (max-width: 600px){
+    body {
+        font-size: 1rem;
     }
 
-    h2{
-        font-size: 1.7em;
-        font-weight: 700; 
-
+    h1 {
+        font-size: 1.8rem;
+        margin: 1rem 0;
     }
 
-    header nav ul {
-        gap: 1.5rem;
+    #cityInput {
+        width: 90%;
+        padding: 0.9rem;
+        font-size: 1.1rem;
     }
 
-    #Connect ul {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.25rem;
-        justify-content: center;
+    .button-group button {
+        width: 80%;
+        padding: 0.9rem;
+        font-size: 1.1rem;
     }
-}*/
+
+    section {
+        padding: 1.5rem 1rem;
+    }
+
+    #output {
+        font-size: 1rem;
+    }
+}
 
 /*===========================================================*/
-/* DESKTOP*/
+/* MEDIUM SCREENS (Tablets)*/
 /*===========================================================*/
-/*@media (min-width: 1024px){
-    h1{
-        font-size: 3.4em;
-        margin-top: 3.5rem;
-    }
+@media (min-width: 601px) and (max-width: 1024px) {
+    h1 {
+    font-size: 2.4rem;
+  }
 
-    #Connect ul {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2.15rem;
-        justify-content: space-evenly;
-    }
-}*/
+  #cityInput {
+    width: 75%;
+    padding: 0.8rem 1rem;
+    font-size: 1.1rem;
+  }
+
+  .button-group button {
+    font-size: 1rem;
+    padding: 0.8rem 1.4rem;
+  }
+
+  section {
+    max-width: 80%;
+    padding: 2rem;
+  }
+}
+
+/*===========================================================*/
+/* LARGE SCREENS (Desktops)*/
+/*===========================================================*/
+@media (min-width: 1025px){
+     h1 {
+    font-size: 2.8rem;
+  }
+
+  #cityInput {
+    max-width: 450px;
+    font-size: 1.1rem;
+  }
+
+  .button-group button {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+  }
+
+  section {
+    max-width: 700px;
+    padding: 2.5rem;
+  }
+
+  #output {
+    font-size: 1.15rem;
+  }  
+}
