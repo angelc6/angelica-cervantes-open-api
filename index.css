@@ -1,0 +1,196 @@
+/*===========================================================*/
+/* BASE STYLES*/
+/*===========================================================*/
+body {
+    background-color: #759AAB;
+    color: #0C1821;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #1B2A41;
+    font-size: 2.2rem;
+    font-weight: 900;
+    text-transform: capitalize;
+    margin-top: 1.5rem;
+}
+
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+#cityInput {
+    width: 85%;
+    max-width: 400px;
+    padding: 0.8rem 1rem;
+    border: 2px solid #1B2A41;
+    border-radius: 25px;
+    font-size: 1rem;
+    text-align: center;
+    outline: none;
+    background-color: #f9f9f9;
+    color: #0c1821;
+}
+
+#cityInput:focus {
+    border-color: #759AAB;
+    box-shadow: 0 0 6px #324A6E;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-top: 1.2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.button-group button {
+    background-color: #1B2A41;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 30px;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button-group button:hover {
+    background-color: #324A6E;
+    transform: scale(1.05);
+}
+
+section {
+    padding: 2rem;
+    margin: 1.5rem auto;
+    max-width: 90%;
+    background-color: #CCC9DC;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.125rem 0.3125rem black;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.3em;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+/* Output */
+#output {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-top: 1rem;
+    color: #1b2a41
+}
+
+#output h3{
+    color: #1b2a41;
+    margin-bottom: 0.5rem;
+}
+
+/* footer */
+footer {
+    margin-top: 2rem;
+    color: #1B2A41;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+/*===========================================================*/
+/* SMALL SCREENS (Phones)*/
+/*===========================================================*/
+@media (max-width: 600px){
+    body {
+        font-size: 1rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        margin: 1rem 0;
+    }
+
+    #cityInput {
+        width: 90%;
+        padding: 0.9rem;
+        font-size: 1.1rem;
+    }
+
+    .button-group button {
+        width: 80%;
+        padding: 0.9rem;
+        font-size: 1.1rem;
+    }
+
+    section {
+        padding: 1.5rem 1rem;
+    }
+
+    #output {
+        font-size: 1rem;
+    }
+}
+
+/*===========================================================*/
+/* MEDIUM SCREENS (Tablets)*/
+/*===========================================================*/
+@media (min-width: 601px) and (max-width: 1024px) {
+    h1 {
+    font-size: 2.4rem;
+  }
+
+  #cityInput {
+    width: 75%;
+    padding: 0.8rem 1rem;
+    font-size: 1.1rem;
+  }
+
+  .button-group button {
+    font-size: 1rem;
+    padding: 0.8rem 1.4rem;
+  }
+
+  section {
+    max-width: 80%;
+    padding: 2rem;
+  }
+}
+
+/*===========================================================*/
+/* LARGE SCREENS (Desktops)*/
+/*===========================================================*/
+@media (min-width: 1025px){
+     h1 {
+    font-size: 2.8rem;
+  }
+
+  #cityInput {
+    max-width: 450px;
+    font-size: 1.1rem;
+  }
+
+  .button-group button {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+  }
+
+  section {
+    max-width: 700px;
+    padding: 2.5rem;
+  }
+
+  #output {
+    font-size: 1.15rem;
+  }  
+}
